@@ -1,0 +1,41 @@
+# Pi-hole (v6) + Unbound recursive resolver
+# Usage (from repo root):
+#   docker compose -f services/pihole/compose.yml --env-file .env up -d
+name: pihole
+
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80/tcp"     # web UI → http://<PI_IP>:8080/admin
+    environment:
+      TZ: ${TZ:-Etc/UTC}
+      FTLCONF_webserver_api_password: ${PIHOLE_PASSWORD:?set PIHOLE_PASSWORD in .env}
+      FTLCONF_dns_listeningMode: all          # answer LAN + Tailscale clients
+      FTLCONF_dns_upstreams: 172.30.0.2#53     # unbound
+      FTLCONF_dns_dnssec: "false"              # unbound already validates
+    volumes:
+      - ${DATA_DIR:-/srv/homelab}/pihole/etc-pihole:/etc/pihole
+    networks:
+      dns:
+        ipv4_address: 172.30.0.3
+    depends_on:
+      - unbound
+
+  unbound:
+    image: klutchell/unbound:latest   # multi-arch, works on arm64
+    container_name: unbound
+    restart: unless-stopped
+    networks:
+      dns:
+        ipv4_address: 172.30.0.2
+
+networks:
+  dns:
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24

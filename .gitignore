@@ -1,0 +1,25 @@
+# Secrets & local config
+.env
+*.env
+!.env.example
+*.key
+*.pem
+secrets/
+
+# Service data / volumes
+data/
+volumes/
+**/etc-pihole/
+**/etc-dnsmasq.d/
+
+# Backups & dumps
+*.sql
+*.sqlite
+*.db
+*.tar.gz
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+node_modules/
