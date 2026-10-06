@@ -12,5 +12,5 @@
 ## Open questions
 - Run in Docker or directly on host (needs access to tools/files)?
 - Sandbox limits: what can the agent execute on the Pi?
-- Local fallback model via Ollama on the 16 GB Pi?
+- Local fallback model via Ollama on the 8 GB Pi (1–3B models)?
 - ChatGPT plan usage limits when used via agent.

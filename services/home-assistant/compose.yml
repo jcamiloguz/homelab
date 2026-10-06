@@ -1,0 +1,16 @@
+# Home Assistant — controls the Hue Play lights over the Pi's Bluetooth (Hue BLE integration)
+# Usage (from repo root):
+#   docker compose -f services/home-assistant/compose.yml --env-file .env up -d
+name: home-assistant
+
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    restart: unless-stopped
+    network_mode: host          # needed for Bluetooth + device discovery → http://<PI_HOST>:8123
+    environment:
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+      - ${DATA_DIR:-/srv/homelab}/home-assistant/config:/config
+      - /run/dbus:/run/dbus:ro  # talk to the host's BlueZ for Bluetooth

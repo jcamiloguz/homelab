@@ -16,6 +16,8 @@ This repo is **public**. Before every commit, check:
 | `<PI_TS_IP>` | the Pi's Tailscale IP |
 | `<PI_HOST>` | the Pi's hostname |
 | `<TAILNET>` | the tailnet name (`xxxx.ts.net`) |
+| `<DESKTOP_HOST>` | the desktop's hostname |
+| `<DESKTOP_MAC>` | the desktop's MAC address (Wake-on-LAN) |
 | `<USER>` | the Linux user |
 
 ## Mechanics

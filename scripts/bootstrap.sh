@@ -7,7 +7,7 @@ DATA_DIR="${DATA_DIR:-/srv/homelab}"
 
 echo "==> Packages"
 sudo apt-get update
-sudo apt-get install -y git curl htop vim unattended-upgrades ufw dnsutils
+sudo apt-get install -y git curl htop vim unattended-upgrades ufw dnsutils bluez
 
 echo "==> Docker"
 if ! command -v docker >/dev/null; then

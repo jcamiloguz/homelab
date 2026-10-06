@@ -9,7 +9,7 @@ My Raspberry Pi 5 AI homelab — documented in public, built step by step.
 
 | Part | Choice |
 |---|---|
-| Board | Raspberry Pi 5 (8/16 GB) |
+| Board | Raspberry Pi 5 (8 GB) |
 | Storage | NVMe SSD via M.2 HAT |
 | Access | Tailscale (no open ports) |
 
@@ -26,10 +26,13 @@ Details: [docs/00-hardware.md](docs/00-hardware.md)
 | 05 | [Reverse proxy & dashboard](docs/05-reverse-proxy.md) | 💡 idea |
 | 06 | [Hermes Agent (ChatGPT account)](docs/06-hermes-agent.md) | 💡 idea |
 | 07 | [Super app](docs/07-super-app.md) — finance, shopping list, portfolio, health | 💡 idea |
+| 08 | [Arduino](docs/08-arduino.md) — sensors, status lights, physical buttons | 💡 idea |
+| 09 | [Smart home](docs/09-smart-home.md) — Hue Play lights via Home Assistant + Bluetooth | ⏳ planned |
+| 10 | [Desktop server](docs/10-desktop-server.md) — GPU node: Ollama, Immich ML, Frigate | 💡 idea |
 
 Status legend: 💡 idea · ⏳ planned · 🚧 in progress · ✅ done · ❌ dropped
 
-More ideas: [docs/ideas.md](docs/ideas.md) · Experiment log: [docs/journal/](docs/journal/)
+More ideas: [docs/ideas.md](docs/ideas.md) · Buying: [docs/buying-roadmap.md](docs/buying-roadmap.md) · Experiment log: [docs/journal/](docs/journal/)
 
 ## Layout
 

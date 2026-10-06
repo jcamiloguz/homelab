@@ -17,7 +17,16 @@ Brain dump of experiments. Promote to a numbered doc when started.
 
 ## Apps
 - [ ] Super app → [07](07-super-app.md)
-- [ ] Home Assistant
+- [ ] Home Assistant → [09](09-smart-home.md) (Hue Play over Bluetooth)
 - [ ] Vaultwarden (passwords)
 - [ ] Immich (photos) — needs more storage
 - [ ] Syncthing
+
+## Arduino / IoT
+- [ ] Arduino Uno R3 as the physical layer (USB serial → MQTT bridge) → [08](08-arduino.md)
+- [ ] `arduino-cli` on the Pi — flash sketches remotely over Tailscale
+- [ ] Mosquitto (MQTT broker) as the shared message bus
+- [ ] RGB LED service-status light + 16×2 LCD homelab dashboard
+- [ ] Room sensors (temp/humidity/light) → super app Health module
+- [ ] Physical buttons / IR remote → agent & super app actions
+- [ ] ESP32 + ESPHome: Wi-Fi sensors + Bluetooth proxy for Home Assistant
