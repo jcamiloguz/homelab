@@ -19,18 +19,18 @@ Details: [docs/00-hardware.md](docs/00-hardware.md)
 
 | # | Topic | Status |
 |---|---|---|
-| 01 | [OS setup & hardening](docs/01-os-setup.md) | ⏳ planned |
-| 02 | [Docker](docs/02-docker.md) | ⏳ planned |
-| 03 | [Tailscale](docs/03-tailscale.md) | ⏳ planned |
-| 04 | [Pi-hole + Unbound](docs/04-pihole.md) | ⏳ planned |
+| 01 | [OS setup & hardening](docs/01-os-setup.md) | ✅ done (microSD, Wi-Fi; static IP pending) |
+| 02 | [Docker](docs/02-docker.md) | ✅ done |
+| 03 | [Tailscale](docs/03-tailscale.md) | ✅ done (tailnet DNS waits for Pi-hole) |
+| 04 | [Pi-hole + Unbound](docs/04-pihole.md) | ⏸️ on hold |
 | 05 | [Reverse proxy & dashboard](docs/05-reverse-proxy.md) | 💡 idea |
-| 06 | [Hermes Agent (ChatGPT account)](docs/06-hermes-agent.md) | 💡 idea |
-| 07 | [Super app](docs/07-super-app.md) — finance, shopping list, portfolio, health | 💡 idea |
+| 06 | [Hermes Agent](docs/06-hermes-agent.md) — ChatGPT, Discord + web UI over Tailscale | 🚧 in progress |
+| 07 | [Hub](docs/07-hub.md) — finance, shopping list, portfolio, health (own repo) | 💡 idea |
 | 08 | [Arduino](docs/08-arduino.md) — sensors, status lights, physical buttons | 💡 idea |
 | 09 | [Smart home](docs/09-smart-home.md) — Hue Play lights via Home Assistant + Bluetooth | ⏳ planned |
 | 10 | [Desktop server](docs/10-desktop-server.md) — GPU node: Ollama, Immich ML, Frigate | 💡 idea |
 
-Status legend: 💡 idea · ⏳ planned · 🚧 in progress · ✅ done · ❌ dropped
+Status legend: 💡 idea · ⏳ planned · 🚧 in progress · ⏸️ on hold · ✅ done · ❌ dropped
 
 More ideas: [docs/ideas.md](docs/ideas.md) · Buying: [docs/buying-roadmap.md](docs/buying-roadmap.md) · Experiment log: [docs/journal/](docs/journal/)
 
@@ -39,7 +39,7 @@ More ideas: [docs/ideas.md](docs/ideas.md) · Buying: [docs/buying-roadmap.md](d
 ```
 docs/              step-by-step guides + journal
 services/<name>/   one docker compose stack per service
-apps/super-app/    my custom self-hosted app
+hermes/            Hermes Agent service unit + skills
 scripts/           host bootstrap / helper scripts
 ```
 

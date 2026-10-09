@@ -16,7 +16,7 @@ Brain dump of experiments. Promote to a numbered doc when started.
 - [ ] Voice assistant (Whisper + Piper) — probably too heavy, test it
 
 ## Apps
-- [ ] Super app → [07](07-super-app.md)
+- [ ] Hub (own repo) → [07](07-hub.md)
 - [ ] Home Assistant → [09](09-smart-home.md) (Hue Play over Bluetooth)
 - [ ] Vaultwarden (passwords)
 - [ ] Immich (photos) — needs more storage
@@ -27,6 +27,6 @@ Brain dump of experiments. Promote to a numbered doc when started.
 - [ ] `arduino-cli` on the Pi — flash sketches remotely over Tailscale
 - [ ] Mosquitto (MQTT broker) as the shared message bus
 - [ ] RGB LED service-status light + 16×2 LCD homelab dashboard
-- [ ] Room sensors (temp/humidity/light) → super app Health module
-- [ ] Physical buttons / IR remote → agent & super app actions
+- [ ] Room sensors (temp/humidity/light) → Hub Health module
+- [ ] Physical buttons / IR remote → agent & Hub actions
 - [ ] ESP32 + ESPHome: Wi-Fi sensors + Bluetooth proxy for Home Assistant

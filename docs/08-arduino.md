@@ -7,7 +7,7 @@ The Uno has no network, so it talks to the Pi over **USB serial**; the Pi bridge
 ```
 sensors / LEDs ──► Arduino Uno ──USB serial──► Pi bridge ──► MQTT (Mosquitto)
                                                                │
-                         super app · Home Assistant · n8n · Hermes Agent
+                         Hub · Home Assistant · n8n · Hermes Agent
                                                                ▲
                                               phone, anywhere (Tailscale)
 ```
@@ -52,7 +52,7 @@ Check IDs with `udevadm info -a -n /dev/ttyACM0` (clone boards often use a CH340
 - Servo as an analog gauge (CPU load, budget used)
 
 **Physical input → actions**
-- ⭐ Buttons → Hermes/super app actions ("add milk", "log water", "log workout")
+- ⭐ Buttons → Hermes/Hub actions ("add milk", "log water", "log workout")
 - IR remote → pause Pi-hole 5 min from the couch
 - Potentiometer → quick mood/energy 1–10 for the Health module
 
@@ -67,6 +67,6 @@ Check IDs with `udevadm info -a -n /dev/ttyACM0` (clone boards often use a CH340
 
 ## Open questions
 - Which kit exactly (official vs. Elegoo)? → list parts in [00-hardware.md](00-hardware.md)
-- Bridge language: Python (`pyserial` + `paho-mqtt`) or TypeScript (`serialport` + `mqtt`) to match the super app?
-- Home Assistant as the hub, or keep it all in the super app?
+- Bridge language: Python (`pyserial` + `paho-mqtt`) or TypeScript (`serialport` + `mqtt`) to match the Hub?
+- Home Assistant as the hub, or keep it all in the Hub?
 - Upgrade path: ESP32 + ESPHome (Wi-Fi sensors around the house → Home Assistant on the Pi; the Pi provides tailnet access).

@@ -63,4 +63,5 @@ Reserve the Pi's IP in your router's DHCP settings (simplest), so Pi-hole has a 
 - `vcgencmd measure_temp` and `vcgencmd get_throttled` (should be `0x0`)
 
 ## Gotchas
-- _Fill in during setup._
+- Pi OS Lite ships without `git` → `sudo apt install -y git` before cloning this repo.
+- `setlocale: cannot change locale (en_US.UTF-8)` on SSH from a Mac → the Mac forwards its locale; generate it on the Pi: `sudo sed -i 's/^# *en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && sudo locale-gen`.

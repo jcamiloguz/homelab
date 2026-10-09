@@ -11,7 +11,7 @@ Rule: **buy when the project that needs it starts** — not before. Log every pu
 - [ ] Ethernet cable — ~$5
 
 ## Phase 1 · Protect your data (month 1, ~$75)
-- [ ] ⭐ External USB SSD/HDD 1–2 TB for restic backups — ~$60 *(before real data goes into the super app)*
+- [ ] ⭐ External USB SSD/HDD 1–2 TB for restic backups — ~$60 *(before real data goes into the Hub)*
 - [ ] ESP32 DevKit 3-pack, USB-C — ~$15
 
 ## Phase 2 · Better sensors (months 1–2, ~$30)

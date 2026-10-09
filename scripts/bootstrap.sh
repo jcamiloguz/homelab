@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Idempotent host bootstrap for the Pi. Safe to re-run.
 # Mirrors docs/01-os-setup.md and docs/02-docker.md.
+# Pi OS Lite has no git: first run `sudo apt install -y git`, then clone the repo.
 set -euo pipefail
 
 DATA_DIR="${DATA_DIR:-/srv/homelab}"

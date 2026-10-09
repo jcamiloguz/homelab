@@ -7,6 +7,7 @@
 | NVMe SSD | 256 GB+; check compatibility lists (some Phison/Sabrent quirks) |
 | Official 27 W USB-C PSU | Under-powering causes NVMe/USB instability |
 | Active cooler | Required for sustained AI workloads |
+| Rastech Pi 5 starter kit (8 GB, 64 GB microSD) | Arrived 2026-10-06. Boots from microSD until an NVMe is bought |
 | microSD (optional) | Only for first boot / rescue |
 | Arduino Uno R3 starter kit | Physical layer via USB serial → see [08-arduino.md](08-arduino.md) |
 | Mac laptop | Dev machine + tailnet client |

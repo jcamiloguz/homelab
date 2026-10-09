@@ -13,7 +13,7 @@
 | Pi 5 (always on, ~5 W) | Desktop (on demand, ~60–100 W idle) |
 |---|---|
 | Pi-hole, Tailscale, Home Assistant | Ollama (7–8B models on GPU) |
-| Super app, Hermes Agent | Immich + ML (face/object recognition) |
+| Hub, Hermes Agent | Immich + ML (face/object recognition) |
 | Wakes the desktop (Wake-on-LAN) | Frigate (camera detection), heavy builds, backups target |
 
 ## 1. Install

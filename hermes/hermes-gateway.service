@@ -1,0 +1,23 @@
+# Hermes Agent gateway (Discord + API server) as a system service, running as the unprivileged `hermes` user.
+# Install:
+#   sudo cp hermes/hermes-gateway.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now hermes-gateway
+#   journalctl -u hermes-gateway -f
+[Unit]
+Description=Hermes Agent gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=hermes
+Group=hermes
+WorkingDirectory=/home/hermes
+Environment=HOME=/home/hermes
+Environment=PATH=/home/hermes/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/hermes/.local/bin/hermes gateway
+Restart=on-failure
+RestartSec=10
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
