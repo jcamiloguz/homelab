@@ -1,0 +1,26 @@
+# Hub — personal life-admin app (private repo jcamiloguz/hub), image from GHCR.
+# Usage (from repo root):
+#   docker compose -f services/hub/compose.yml --env-file .env pull
+#   docker compose -f services/hub/compose.yml --env-file .env up -d
+# Exposed only via: sudo tailscale serve --bg --https=443 http://127.0.0.1:3000
+name: hub
+
+services:
+  hub:
+    # :latest moves only on Hub releases; deploy.sh (hub-deploy.timer) pulls and switches automatically.
+    # Pin HUB_VERSION=X.Y.Z in .env to freeze a version (auto-deploy then has nothing new to pull).
+    image: ghcr.io/jcamiloguz/hub:${HUB_VERSION:-latest}
+    container_name: hub
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"     # loopback only; tailscale serve adds HTTPS + identity headers
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATA_DIR: /data
+      TZ: ${TZ:-America/Bogota}
+      HUB_OWNER_LOGIN: ${HUB_OWNER_LOGIN:?set HUB_OWNER_LOGIN in .env (your Tailscale login)}
+      HUB_MCP_TOKEN: ${HUB_MCP_TOKEN:?set HUB_MCP_TOKEN in .env (openssl rand -hex 32)}
+    volumes:
+      - ${DATA_DIR:-/srv/homelab}/hub:/data
+    mem_limit: 256m

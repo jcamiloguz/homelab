@@ -1,0 +1,11 @@
+[Unit]
+Description=Hub auto-deploy (pull, health check, roll back)
+Wants=network-online.target
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+# Same user that ran `docker login ghcr.io` (its ~/.docker/config.json holds the pull token).
+User=@USER@
+ExecStart=@REPO_DIR@/services/hub/deploy.sh
