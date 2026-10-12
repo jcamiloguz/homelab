@@ -60,6 +60,7 @@ Verify: ask *"what machine and user are you running as?"* → `hermes` on aarch6
    DISCORD_HOME_CHANNEL=<#brief id>
    DISCORD_FREE_RESPONSE_CHANNELS=<#hermes id>
    ```
+   Values must be **numeric IDs**: in `.env`, `#` starts a comment, so `=#brief` is read as empty.
 6. Run the gateway as a service → [`hermes/hermes-gateway.service`](../hermes/hermes-gateway.service).
    Don't use the installer's own `hermes gateway install` (a *user* systemd service): under `sudo -iu hermes` there's no user session bus, so it fails with `Failed to connect to user scope bus`. The system unit runs as `hermes` anyway.
 
@@ -77,12 +78,12 @@ Verify: ask *"what machine and user are you running as?"* → `hermes` on aarch6
    ```
 3. Tailscale admin → DNS → enable **HTTPS certificates**. Then:
    ```bash
-   sudo tailscale serve --bg 3000
+   sudo tailscale serve --bg --https=8443 http://127.0.0.1:3001
    ```
-   → `https://<PI_HOST>.<TAILNET>` from any tailnet device. Create the admin account, then set `OPENWEBUI_ENABLE_SIGNUP=false` and restart.
+   → `https://<PI_HOST>.<TAILNET>:8443` from any tailnet device (port 443 belongs to Hub). Create the admin account, then set `OPENWEBUI_ENABLE_SIGNUP=false` and restart.
 4. Phone: open the URL → *Add to Home Screen*.
 
-Port 3000 isn't allowed from the LAN by ufw (host networking respects ufw); tailnet access is allowed via `tailscale0`.
+Port 3001 isn't allowed from the LAN by ufw (host networking respects ufw); tailnet access is allowed via `tailscale0`.
 
 ## Phase 4 · Integrations & skills
 - **Home Assistant** (built-in tools) → needs [09](09-smart-home.md): long-lived token → `HASS_TOKEN` / `HASS_URL` in `~hermes/.hermes/.env`.
@@ -103,4 +104,4 @@ Open `http://localhost:9119` on the Mac. It can read/write all keys — never bi
 
 ## Open questions
 - ChatGPT plan limits under agent + cron usage — start with few cron jobs.
-- Does `hermes gateway` stay in the foreground (needed for the systemd unit)? Verify in phase 2.
+- ~~Does `hermes gateway` stay in the foreground?~~ Yes — the system unit works (verified 2026-10-11).

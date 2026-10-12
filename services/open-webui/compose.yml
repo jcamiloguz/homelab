@@ -1,7 +1,7 @@
 # Open WebUI — private web front-end for Hermes Agent (OpenAI-compatible API on 127.0.0.1:8642)
 # Usage (from repo root):
 #   docker compose -f services/open-webui/compose.yml --env-file .env up -d
-# Exposed to the tailnet with: sudo tailscale serve --bg 3000
+# Exposed to the tailnet with: sudo tailscale serve --bg --https=8443 http://127.0.0.1:3001
 name: open-webui
 
 services:
@@ -9,9 +9,9 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
     restart: unless-stopped
-    network_mode: host            # reach Hermes on 127.0.0.1; ufw still blocks :3000 from the LAN
+    network_mode: host            # reach Hermes on 127.0.0.1; ufw still blocks :3001 from the LAN
     environment:
-      PORT: 3000                  # 8080 is reserved for Pi-hole
+      PORT: 3001                  # 3000 = Hub, 8080 = Pi-hole
       OPENAI_API_BASE_URL: http://127.0.0.1:8642/v1
       OPENAI_API_KEY: ${HERMES_API_KEY:?set HERMES_API_KEY in .env}
       ENABLE_OLLAMA_API: "false"

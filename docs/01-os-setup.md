@@ -63,5 +63,9 @@ Reserve the Pi's IP in your router's DHCP settings (simplest), so Pi-hole has a 
 - `vcgencmd measure_temp` and `vcgencmd get_throttled` (should be `0x0`)
 
 ## Gotchas
+- Pi OS keeps logs in RAM only (`40-rpi-volatile-storage.conf`) → after a crash there's nothing to read. Make them persistent with a cap:
+  `printf '[Journal]\nStorage=persistent\nSystemMaxUse=200M\n' | sudo tee /etc/systemd/journald.conf.d/90-persistent.conf && sudo systemctl restart systemd-journald && sudo journalctl --flush`
+- Hardware watchdog (reboot if the Pi hangs): `printf '[Manager]\nRuntimeWatchdogSec=15\nRebootWatchdogSec=2min\n' | sudo tee /etc/systemd/system.conf.d/90-watchdog.conf && sudo systemctl daemon-reexec`
+- Ghostty terminal: `Error opening terminal: xterm-ghostty` → `TERM=xterm-256color`, or Ghostty config `shell-integration-features = ssh-env`.
 - Pi OS Lite ships without `git` → `sudo apt install -y git` before cloning this repo.
 - `setlocale: cannot change locale (en_US.UTF-8)` on SSH from a Mac → the Mac forwards its locale; generate it on the Pi: `sudo sed -i 's/^# *en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && sudo locale-gen`.

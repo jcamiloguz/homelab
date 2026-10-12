@@ -25,7 +25,7 @@ Details: [docs/00-hardware.md](docs/00-hardware.md)
 | 04 | [Pi-hole + Unbound](docs/04-pihole.md) | ⏸️ on hold |
 | 05 | [Reverse proxy & dashboard](docs/05-reverse-proxy.md) | 💡 idea |
 | 06 | [Hermes Agent](docs/06-hermes-agent.md) — ChatGPT, Discord + web UI over Tailscale | 🚧 in progress |
-| 07 | [Hub](docs/07-hub.md) — finance, shopping list, portfolio, health (own repo) | 💡 idea |
+| 07 | [Hub](docs/07-hub.md) — finance, shopping list, portfolio, health (own repo) | 🚧 live (phase A); PiHub link next |
 | 08 | [Arduino](docs/08-arduino.md) — sensors, status lights, physical buttons | 💡 idea |
 | 09 | [Smart home](docs/09-smart-home.md) — Hue Play lights via Home Assistant + Bluetooth | ⏳ planned |
 | 10 | [Desktop server](docs/10-desktop-server.md) — GPU node: Ollama, Immich ML, Frigate | 💡 idea |
