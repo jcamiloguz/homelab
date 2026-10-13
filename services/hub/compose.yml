@@ -21,6 +21,11 @@ services:
       TZ: ${TZ:-America/Bogota}
       HUB_OWNER_LOGIN: ${HUB_OWNER_LOGIN:?set HUB_OWNER_LOGIN in .env (your Tailscale login)}
       HUB_MCP_TOKEN: ${HUB_MCP_TOKEN:?set HUB_MCP_TOKEN in .env (openssl rand -hex 32)}
+      # Library catalogs (optional; empty = that catalog off, manual entry still works)
+      TMDB_API_TOKEN: ${TMDB_API_TOKEN:-}
+      IGDB_CLIENT_ID: ${IGDB_CLIENT_ID:-}
+      IGDB_CLIENT_SECRET: ${IGDB_CLIENT_SECRET:-}
+      GOOGLE_BOOKS_API_KEY: ${GOOGLE_BOOKS_API_KEY:-}
     volumes:
       - ${DATA_DIR:-/srv/homelab}/hub:/data
     mem_limit: 256m

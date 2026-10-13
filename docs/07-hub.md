@@ -121,7 +121,7 @@ After a rollback the bad image is skipped until a newer release exists — fix f
 ## Operations
 - **Upgrade:** automatic (above). Manual: `sudo systemctl start hub-deploy`. Check `/healthz` (shows version, stage + commit).
 - **Staging** (`:develop` image) on another port/serve port — only if needed.
-- **Backups:** nightly snapshot + one before every deploy in `${DATA_DIR}/hub/backups` (keeps 7) → restic once it exists.
+- **Backups:** nightly snapshot + one before every deploy in `${DATA_DIR}/hub/backups` (keeps 7) → restic once it exists. Library covers live next to it in `${DATA_DIR}/hub/covers` (not in the DB): back up both.
 - **Logs:** `docker logs -f hub`.
 
 ## Rules
